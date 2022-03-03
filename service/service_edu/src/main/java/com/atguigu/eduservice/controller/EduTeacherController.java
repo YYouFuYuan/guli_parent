@@ -25,6 +25,7 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/eduservice/edu-teacher")
+@CrossOrigin
 public class EduTeacherController {
     @Autowired
     private EduTeacherService eduTeacherService;
@@ -98,11 +99,6 @@ public class EduTeacherController {
     public R getTeacher(@ApiParam(name = "id",value = "讲师Id",required = true)
                             @PathVariable String id){
         EduTeacher teacher = eduTeacherService.getById(id);
-        try {
-            int a = 10 / 0;
-        }catch (Exception e){
-            throw new GuliException(20000,e.getMessage());
-        }
 
         return R.ok().data("teacher",teacher);
     }
