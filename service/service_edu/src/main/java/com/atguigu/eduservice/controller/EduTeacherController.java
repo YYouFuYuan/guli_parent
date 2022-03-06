@@ -35,7 +35,7 @@ public class EduTeacherController {
     @GetMapping("findAll")
     public R findAllTeacher(){
         List<EduTeacher> list = eduTeacherService.list(null);
-        return R.ok().data("item",list);
+        return R.ok().data("items",list);
     }
 
 
