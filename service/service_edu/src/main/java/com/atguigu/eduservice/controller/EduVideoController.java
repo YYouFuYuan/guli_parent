@@ -1,7 +1,9 @@
 package com.atguigu.eduservice.controller;
 
 
+import com.alibaba.excel.util.StringUtils;
 import com.atguigu.commonutils.R;
+import com.atguigu.eduservice.client.VodClient;
 import com.atguigu.eduservice.entity.vo.VideoInfoForm;
 import com.atguigu.eduservice.service.EduVideoService;
 import io.swagger.annotations.ApiOperation;
@@ -19,10 +21,12 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/eduservice/video")
-@CrossOrigin
 public class EduVideoController {
     @Autowired
     private EduVideoService videoService;
+
+    @Autowired
+    private VodClient vodClient;
 
     @ApiOperation(value = "新增课时")
     @PostMapping("save-video-info")
@@ -62,6 +66,11 @@ public class EduVideoController {
     public R removeById(
             @ApiParam(name = "id", value = "课时ID", required = true)
             @PathVariable String id){
+        String videoId = videoService.getById(id).getVideoSourceId();
+        //还要删除阿里云视频，微服务调用
+        if(!StringUtils.isEmpty(videoId)){
+            vodClient.removeVideo(videoId);
+        }
 
         boolean result = videoService.removeVideoById(id);
         if(result){

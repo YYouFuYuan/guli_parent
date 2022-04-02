@@ -1,11 +1,12 @@
 package com.atguigu.eduservice.service;
 
 import com.atguigu.eduservice.entity.EduCourse;
-import com.atguigu.eduservice.entity.vo.CourseInfoVo;
-import com.atguigu.eduservice.entity.vo.CoursePublishVo;
-import com.atguigu.eduservice.entity.vo.CourseQuery;
+import com.atguigu.eduservice.entity.vo.*;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>
@@ -59,4 +60,32 @@ public interface EduCourseService extends IService<EduCourse> {
      * @return
      */
     boolean removeCourseById(String id);
+
+    /**
+     *
+     * @param teacherId
+     * @return
+     */
+    List<EduCourse> selectByTeacherId(String teacherId);
+
+    /**
+     * 前台的课程列表
+     * @param pageParam
+     * @param courseQuery
+     * @return
+     */
+    Map<String, Object> pageListWeb(Page<EduCourse> pageParam, CourseQueryVo courseQuery);
+
+    /**
+     * 获取课程信息
+     * @param id
+     * @return
+     */
+    CourseWebVo selectInfoWebById(String id);
+
+    /**
+     * 更新课程浏览数
+     * @param id
+     */
+    void updatePageViewCount(String id);
 }

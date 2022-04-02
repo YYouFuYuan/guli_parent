@@ -5,7 +5,6 @@ import com.atguigu.commonutils.R;
 import com.atguigu.eduservice.entity.EduChapter;
 import com.atguigu.eduservice.entity.vo.ChapterVo;
 import com.atguigu.eduservice.service.EduChapterService;
-import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +20,6 @@ import java.util.List;
  * @author Ay
  * @since 2022-03-06
  */
-@CrossOrigin //跨域
 @RestController
 @RequestMapping("/eduservice/chapter")
 public class EduChapterController {

@@ -16,4 +16,5 @@ public class ChapterVo implements Serializable {
     private String id;
     private String title;
     private List<VideoVo> children = new ArrayList<>();
+
 }
