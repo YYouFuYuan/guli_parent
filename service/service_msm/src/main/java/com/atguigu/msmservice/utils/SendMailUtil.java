@@ -2,21 +2,16 @@ package com.atguigu.msmservice.utils;
 
 import com.sun.mail.util.MailSSLSocketFactory;
 
-
-
-
-import java.io.FileOutputStream;
-import java.io.OutputStream;
-
-import java.util.Date;
-import java.util.Properties;
-
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
+import java.util.Date;
+import java.util.Properties;
 
 
 public class SendMailUtil {
@@ -26,11 +21,11 @@ public class SendMailUtil {
     private static String myEmailSMTPHost = "smtp.qq.com";
 
     //发件人邮箱
-    private static String myEmailAccount = "1098091827@qq.com";
+    private static String myEmailAccount = "XXXX";
 
     //发件人邮箱密码（授权码）
     //在开启SMTP服务时会获取到一个授权码，把授权码填在这里
-    private static String myEmailPassword = "vqocwsqnwzyyijaf";
+    private static String myEmailPassword = "XXXX";
 
     /**
      * 邮件单发（自由编辑短信，并发送，适用于私信）
@@ -92,7 +87,7 @@ public class SendMailUtil {
 
         //设置发件人邮箱
         // InternetAddress 的三个参数分别为: 发件人邮箱, 显示的昵称(只用于显示, 没有特别的要求), 昵称的字符集编码
-        msg.setFrom(new InternetAddress(myEmailAccount,"阿源你好", "UTF-8"));
+        msg.setFrom(new InternetAddress(myEmailAccount,"XXX", "UTF-8"));
 
         //得到邮差对象
         Transport transport = session.getTransport();
